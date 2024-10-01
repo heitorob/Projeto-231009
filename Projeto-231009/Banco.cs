@@ -50,10 +50,7 @@ namespace Projeto_231009
                 Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS vendas; USE vendas", Conectar);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS cidades (" +
-                                            "id integer auto_increment primary key, " +
-                                            "nome char(40), " +
-                                            "uf char(2))", Conectar);
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS cidades (id integer auto_increment primary key, nome char(40), uf char(2))", Conectar);
                 Comando.ExecuteNonQuery();
             }
             catch (Exception e)
