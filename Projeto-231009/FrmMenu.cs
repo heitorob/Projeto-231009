@@ -28,5 +28,11 @@ namespace Projeto_231009
             FrmCidades form = new FrmCidades();
             form.Show();
         }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarcas form = new FrmMarcas();
+            form.Show();
+        }
     }
 }
