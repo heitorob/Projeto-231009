@@ -174,9 +174,12 @@
             // 
             // dgvCIDADES
             // 
+            this.dgvCIDADES.AllowUserToAddRows = false;
+            this.dgvCIDADES.AllowUserToDeleteRows = false;
             this.dgvCIDADES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCIDADES.Location = new System.Drawing.Point(30, 85);
             this.dgvCIDADES.Name = "dgvCIDADES";
+            this.dgvCIDADES.ReadOnly = true;
             this.dgvCIDADES.Size = new System.Drawing.Size(706, 271);
             this.dgvCIDADES.TabIndex = 9;
             this.dgvCIDADES.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCIDADES_CellClick);

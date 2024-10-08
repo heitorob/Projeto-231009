@@ -20,7 +20,7 @@ namespace Projeto_231009
         {
             try
             {
-                Conectar = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau");
+                Conectar = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau;database=vendas");
                 Conectar.Open();
             }
             catch (Exception e)
