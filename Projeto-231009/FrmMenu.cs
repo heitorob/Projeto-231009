@@ -34,5 +34,11 @@ namespace Projeto_231009
             FrmMarcas form = new FrmMarcas();
             form.Show();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCategorias form = new FrmCategorias();
+            form.Show();
+        }
     }
 }
