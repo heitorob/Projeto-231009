@@ -20,6 +20,14 @@ namespace Projeto_231009
         {
             try
             {
+                Conectar = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau;");
+                Conectar.Open();
+
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS vendas;", Conectar);
+                Comando.ExecuteNonQuery();
+
+                Conectar.Close();
+
                 Conectar = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau;database=vendas");
                 Conectar.Open();
             }
@@ -47,17 +55,17 @@ namespace Projeto_231009
             try
             {
                 AbrirConexao();
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS vendas; USE vendas", Conectar);
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS cidades (id integer auto_increment primary key, nome char(40), uf char(2));", Conectar);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS cidades (id integer auto_increment primary key, nome char(40), uf char(2))", Conectar);
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS marcas (id integer auto_increment primary key, marca char(20));", Conectar);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS marcas (id integer auto_increment primary key, marca char(20))", Conectar);
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categorias (id integer auto_increment primary key, categoria char(20));", Conectar);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categorias (id integer auto_increment primary key, categoria char(20))", Conectar);
-                Comando.ExecuteNonQuery();
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS clientes (id integer auto_increment primary key, nome char(40), idCidade integer, nascimento date, renda decimal(10,2), cpf char(14), foto varchar(100), venda boolean)", Conectar);
             }
             catch (Exception e)
             {
