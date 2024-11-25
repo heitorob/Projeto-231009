@@ -66,6 +66,7 @@ namespace Projeto_231009
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS clientes (id integer auto_increment primary key, nome char(40), idCidade integer, nascimento date, renda decimal(10,2), cpf char(14), foto varchar(100), venda boolean)", Conectar);
+                Comando.ExecuteNonQuery();
             }
             catch (Exception e)
             {

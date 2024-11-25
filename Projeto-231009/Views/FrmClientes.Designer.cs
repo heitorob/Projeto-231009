@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvCIDADES = new System.Windows.Forms.DataGridView();
+            this.dgvCLIENTES = new System.Windows.Forms.DataGridView();
             this.txtPESQUISAR = new System.Windows.Forms.TextBox();
             this.btnPESQUISAR = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,14 +54,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chkVENDA = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.ofdARQUIVO = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCIDADES)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCLIENTES)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvCIDADES);
+            this.groupBox1.Controls.Add(this.dgvCLIENTES);
             this.groupBox1.Controls.Add(this.txtPESQUISAR);
             this.groupBox1.Controls.Add(this.btnPESQUISAR);
             this.groupBox1.Controls.Add(this.label4);
@@ -71,16 +72,17 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             // 
-            // dgvCIDADES
+            // dgvCLIENTES
             // 
-            this.dgvCIDADES.AllowUserToAddRows = false;
-            this.dgvCIDADES.AllowUserToDeleteRows = false;
-            this.dgvCIDADES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCIDADES.Location = new System.Drawing.Point(30, 85);
-            this.dgvCIDADES.Name = "dgvCIDADES";
-            this.dgvCIDADES.ReadOnly = true;
-            this.dgvCIDADES.Size = new System.Drawing.Size(706, 271);
-            this.dgvCIDADES.TabIndex = 9;
+            this.dgvCLIENTES.AllowUserToAddRows = false;
+            this.dgvCLIENTES.AllowUserToDeleteRows = false;
+            this.dgvCLIENTES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCLIENTES.Location = new System.Drawing.Point(30, 85);
+            this.dgvCLIENTES.Name = "dgvCLIENTES";
+            this.dgvCLIENTES.ReadOnly = true;
+            this.dgvCLIENTES.Size = new System.Drawing.Size(706, 271);
+            this.dgvCLIENTES.TabIndex = 9;
+            this.dgvCLIENTES.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCLIENTES_CellClick);
             // 
             // txtPESQUISAR
             // 
@@ -97,6 +99,7 @@
             this.btnPESQUISAR.TabIndex = 4;
             this.btnPESQUISAR.Text = "Pesquisar";
             this.btnPESQUISAR.UseVisualStyleBackColor = true;
+            this.btnPESQUISAR.Click += new System.EventHandler(this.btnPESQUISAR_Click);
             // 
             // label4
             // 
@@ -138,6 +141,7 @@
             this.btnFECHAR.TabIndex = 14;
             this.btnFECHAR.Text = "Fechar";
             this.btnFECHAR.UseVisualStyleBackColor = true;
+            this.btnFECHAR.Click += new System.EventHandler(this.btnFECHAR_Click);
             // 
             // btnEXCLUIR
             // 
@@ -147,6 +151,7 @@
             this.btnEXCLUIR.TabIndex = 15;
             this.btnEXCLUIR.Text = "Excluir";
             this.btnEXCLUIR.UseVisualStyleBackColor = true;
+            this.btnEXCLUIR.Click += new System.EventHandler(this.btnEXCLUIR_Click);
             // 
             // btnCANCELAR
             // 
@@ -156,6 +161,7 @@
             this.btnCANCELAR.TabIndex = 16;
             this.btnCANCELAR.Text = "Cancelar";
             this.btnCANCELAR.UseVisualStyleBackColor = true;
+            this.btnCANCELAR.Click += new System.EventHandler(this.btnCANCELAR_Click);
             // 
             // btnALTERAR
             // 
@@ -165,6 +171,7 @@
             this.btnALTERAR.TabIndex = 17;
             this.btnALTERAR.Text = "Alterar";
             this.btnALTERAR.UseVisualStyleBackColor = true;
+            this.btnALTERAR.Click += new System.EventHandler(this.btnALTERAR_Click);
             // 
             // btnINCLUIR
             // 
@@ -174,6 +181,7 @@
             this.btnINCLUIR.TabIndex = 18;
             this.btnINCLUIR.Text = "Incluir";
             this.btnINCLUIR.UseVisualStyleBackColor = true;
+            this.btnINCLUIR.Click += new System.EventHandler(this.btnINCLUIR_Click);
             // 
             // label3
             // 
@@ -225,6 +233,7 @@
             this.picFoto.Size = new System.Drawing.Size(200, 186);
             this.picFoto.TabIndex = 24;
             this.picFoto.TabStop = false;
+            this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
             // 
             // cmbCIDADES
             // 
@@ -318,9 +327,10 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmClientes";
             this.Text = "Cadastro de Clientes";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCIDADES)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCLIENTES)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -330,7 +340,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvCIDADES;
+        private System.Windows.Forms.DataGridView dgvCLIENTES;
         private System.Windows.Forms.TextBox txtPESQUISAR;
         private System.Windows.Forms.Button btnPESQUISAR;
         private System.Windows.Forms.Label label4;
@@ -355,5 +365,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chkVENDA;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.OpenFileDialog ofdARQUIVO;
     }
 }
