@@ -25,7 +25,7 @@ namespace Projeto_231009.Models
             try
             {
                 Banco.Conectar.Open();
-                Banco.Comando = new MySqlCommand("INSERT INTO clientes (nome, idCidade, nascimento, renda, cpf, foto, venda) (@nome, @idCidade, @nascimento, @renda, @cpf, @foto, @venda)", Banco.Conectar);
+                Banco.Comando = new MySqlCommand("INSERT INTO clientes (nome, idCidade, nascimento, renda, cpf, foto, venda) VALUES (@nome, @idCidade, @nascimento, @renda, @cpf, @foto, @venda)", Banco.Conectar);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", idCidade);
                 Banco.Comando.Parameters.AddWithValue("@nascimento", nascimento);

@@ -131,7 +131,7 @@ namespace Projeto_231009.Views
         {
             if (txtID.Text == "") return;
 
-            if (MessageBox.Show("Deseja excluir a cidade?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja excluir o cliente?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cl = new Clientes()
                 {
