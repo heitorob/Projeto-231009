@@ -130,6 +130,7 @@
             this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(54, 57);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(126, 20);
             this.txtID.TabIndex = 19;
             // 
@@ -243,6 +244,7 @@
             this.cmbCIDADES.Name = "cmbCIDADES";
             this.cmbCIDADES.Size = new System.Drawing.Size(403, 21);
             this.cmbCIDADES.TabIndex = 25;
+            this.cmbCIDADES.SelectedIndexChanged += new System.EventHandler(this.cmbCIDADES_SelectedIndexChanged);
             // 
             // dtpNASCIMENTO
             // 

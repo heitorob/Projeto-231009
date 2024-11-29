@@ -65,6 +65,15 @@ namespace Projeto_231009.Views
             picFoto.ImageLocation = ofdARQUIVO.FileName;
         }
 
+        private void cmbCIDADES_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCIDADES.SelectedIndex != -1)
+            {
+                DataRowView regiao = (DataRowView)cmbCIDADES.SelectedItem;
+                txtUF.Text = regiao["uf"].ToString();
+            }
+        }
+
         private void btnINCLUIR_Click(object sender, EventArgs e)
         {
             if (txtNOME.Text == "") return;
