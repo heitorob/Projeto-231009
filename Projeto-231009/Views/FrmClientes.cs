@@ -116,6 +116,7 @@ namespace Projeto_231009.Views
 
             cl = new Clientes()
             {
+                id = int.Parse(txtID.Text),
                 nome = txtNOME.Text,
                 idCidade = (int)cmbCIDADES.SelectedValue,
                 nascimento = dtpNASCIMENTO.Value,

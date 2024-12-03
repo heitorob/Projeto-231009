@@ -45,9 +45,13 @@ namespace Projeto_231009.Views
         private void FrmProdutos_Load(object sender, EventArgs e)
         {
             p = new Produtos();
+            c = new Categorias();
+            m = new Marcas();
             dgvPRODUTOS.DataSource = p.Consultar();
+            cmbCATEGORIAS.DataSource = c.Consultar();
             cmbCATEGORIAS.DisplayMember = "categoria";
             cmbCATEGORIAS.ValueMember = "id";
+            cmbMARCAS.DataSource = m.Consultar();
             cmbMARCAS.DisplayMember = "marca";
             cmbMARCAS.ValueMember = "id";
 
@@ -106,6 +110,7 @@ namespace Projeto_231009.Views
 
             p = new Produtos()
             {
+                id = int.Parse(txtID.Text),
                 descricao = txtDESCRICAO.Text,
                 idCategoria = (int)cmbCATEGORIAS.SelectedValue,
                 idMarca = (int)cmbMARCAS.SelectedValue,

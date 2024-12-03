@@ -1,5 +1,4 @@
-﻿using Projeto_231009.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projeto_231009.Models;
 
 namespace Projeto_231009.Views
 {
@@ -33,12 +33,6 @@ namespace Projeto_231009.Views
                 categoria = pesquisar
             };
             dgvCATEGORIAS.DataSource = c.Consultar();
-        }
-
-        private void FrmMarcas_Load(object sender, EventArgs e)
-        {
-            limparControles();
-            carregarGrid("");
         }
 
         private void btnINCLUIR_Click(object sender, EventArgs e)
@@ -110,6 +104,12 @@ namespace Projeto_231009.Views
         private void btnPESQUISAR_Click(object sender, EventArgs e)
         {
             carregarGrid(txtPESQUISAR.Text);
+        }
+
+        private void FrmCategorias_Load(object sender, EventArgs e)
+        {
+            limparControles();
+            carregarGrid("");
         }
     }
 }

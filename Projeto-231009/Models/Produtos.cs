@@ -46,7 +46,8 @@ namespace Projeto_231009.Models
             try
             {
                 Banco.Conectar.Open();
-                Banco.Comando = new MySqlCommand("UPDATE produtos SET descricao = @descricao, idCategoria = @idCategoria, idMarca = @idMarca, estoque = @estoque, valorVenda = @valorVenda, foto = @foto, venda = @venda where id = @id", Banco.Conectar);
+                Banco.Comando = new MySqlCommand("UPDATE produtos SET descricao = @descricao, idCategoria = @idCategoria, idMarca = @idMarca, estoque = @estoque, valorVenda = @valorVenda, foto = @foto where id = @id", Banco.Conectar);
+                Banco.Comando.Parameters.AddWithValue("@id", id);
                 Banco.Comando.Parameters.AddWithValue("@descricao", descricao);
                 Banco.Comando.Parameters.AddWithValue("@idCategoria", idCategoria);
                 Banco.Comando.Parameters.AddWithValue("@idMarca", idMarca);
@@ -64,11 +65,18 @@ namespace Projeto_231009.Models
 
         public void Excluir()
         {
-            Banco.Conectar.Open();
-            Banco.Comando = new MySqlCommand("DELETE FROM produtos WHERE id = @id", Banco.Conectar);
-            Banco.Comando.Parameters.AddWithValue("@id", id);
-            Banco.Comando.ExecuteNonQuery();
-            Banco.Conectar.Close();
+            try
+            {
+                Banco.Conectar.Open();
+                Banco.Comando = new MySqlCommand("DELETE FROM produtos WHERE id = @id", Banco.Conectar);
+                Banco.Comando.Parameters.AddWithValue("@id", id);
+                Banco.Comando.ExecuteNonQuery();
+                Banco.Conectar.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public DataTable Consultar()

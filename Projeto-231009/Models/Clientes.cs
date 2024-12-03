@@ -48,6 +48,7 @@ namespace Projeto_231009.Models
             {
                 Banco.Conectar.Open();
                 Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, idCidade = @idCidade, nascimento = @nascimento, renda = @renda, cpf = @cpf, foto = @foto, venda = @venda where id = @id", Banco.Conectar);
+                Banco.Comando.Parameters.AddWithValue("@id", id);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", idCidade);
                 Banco.Comando.Parameters.AddWithValue("@nascimento", nascimento);
@@ -66,11 +67,18 @@ namespace Projeto_231009.Models
 
         public void Excluir()
         {
-            Banco.Conectar.Open();
-            Banco.Comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conectar);
-            Banco.Comando.Parameters.AddWithValue("@id", id);
-            Banco.Comando.ExecuteNonQuery();
-            Banco.Conectar.Close();
+            try
+            {
+                Banco.Conectar.Open();
+                Banco.Comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conectar);
+                Banco.Comando.Parameters.AddWithValue("@id", id);
+                Banco.Comando.ExecuteNonQuery();
+                Banco.Conectar.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public DataTable Consultar()
